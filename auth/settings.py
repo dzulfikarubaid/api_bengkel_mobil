@@ -126,9 +126,17 @@ import os
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static") 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+("js", os.path.join(STATIC_ROOT, 'js')),
+("css", os.path.join(STATIC_ROOT, 'css')),
+("images", os.path.join(STATIC_ROOT, 'images')),
+("fonts", os.path.join(STATIC_ROOT, 'fonts')),
+)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
